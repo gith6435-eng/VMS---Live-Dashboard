@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VMS Techs Live Business Metrics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="page-header">
+      <div class="page-header__copy">
+        <p class="eyebrow">VMS Techs / Live Decision Support</p>
+        <h1>VMS Techs Live Business Metrics</h1>
+        <p class="page-header__text">
+          A real-time business dashboard prototype designed to help analysts monitor changing
+          performance signals, compare active metrics, and track the leading indicator over time.
+        </p>
+      </div>
+
+      <div class="page-header__actions">
+        <button id="refresh-button" class="refresh-button" type="button">Refresh now</button>
+        <div class="status-stack">
+          <span id="status-pill" class="status-pill status-pill--loading">Connecting to live metric service...</span>
+          <span id="last-updated">Awaiting first sync</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="dashboard-grid">
+      <section class="summary-grid" aria-label="Summary cards">
+        <article class="summary-card">
+          <p id="summary-label-1" class="summary-card__label">Enterprise Software Sales</p>
+          <h2 id="summary-value-1">--</h2>
+          <p id="summary-meta-1" class="summary-card__meta">Waiting for metric update</p>
+        </article>
+
+        <article class="summary-card">
+          <p id="summary-label-2" class="summary-card__label">Cloud Services Revenue</p>
+          <h2 id="summary-value-2">--</h2>
+          <p id="summary-meta-2" class="summary-card__meta">Waiting for metric update</p>
+        </article>
+
+        <article class="summary-card">
+          <p id="summary-label-3" class="summary-card__label">Managed Operations Margin</p>
+          <h2 id="summary-value-3">--</h2>
+          <p id="summary-meta-3" class="summary-card__meta">Waiting for metric update</p>
+        </article>
+      </section>
+
+      <section class="chart-grid">
+        <article class="panel-card">
+          <div class="panel-card__header">
+            <div>
+              <p class="section-tag">Current Snapshot</p>
+              <h3>Metric comparison</h3>
+            </div>
+            <p class="panel-card__note">Five active business indicators</p>
+          </div>
+          <div class="chart-shell chart-shell--bar">
+            <canvas id="metrics-bar-chart" aria-label="Business metric comparison chart"></canvas>
+          </div>
+        </article>
+
+        <article class="panel-card">
+          <div class="panel-card__header">
+            <div>
+              <p class="section-tag">Trend Tracking</p>
+              <h3>Top metric over time</h3>
+            </div>
+            <p id="trend-description" class="panel-card__note">Tracking the leading metric</p>
+          </div>
+          <div class="chart-shell chart-shell--line">
+            <canvas id="metric-line-chart" aria-label="Top metric trend chart"></canvas>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
